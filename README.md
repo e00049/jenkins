@@ -1,3 +1,0 @@
-# jenkins
-Pull-Build-Push
-
