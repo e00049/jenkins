@@ -16,3 +16,7 @@ sudo apt update
 # Install Jenkins 
 sudo apt install jenkins -y
 
+
+
+
+Source Website: https://linuxhint.com/install-jenkins-on-ubuntu/
