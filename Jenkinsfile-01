@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage ('#1. Development Stage') {
+            steps{
+                echo "This is Development Stage"
+            }
+        }
+        stage ('#2. Testing stage') {
+            steps {
+                echo "This is Testing Stage"
+            }
+        }
+       stage ('#3. This is UAT Stage') {
+           steps {
+               echo "This is UAT Stage"
+           }
+       }
+       stage ('#4. This is Production Stage') {
+           steps {
+                echo "This is Production Stage"    
+           }
+       }
+    }
+}
