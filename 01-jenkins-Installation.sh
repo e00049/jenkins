@@ -1,7 +1,6 @@
-# User DATA
-
 #!/usr/bin/env bash
 
+sudo apt update
 sudo apt install openjdk-11-jdk -y
 sudo java --version
 sudo wget -p -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
