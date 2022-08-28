@@ -1,0 +1,26 @@
+pipeline {
+	agent any
+	environment {
+	  DOCKERHUB_CREDENTIALS = credentials('docker-hub-e00049')
+	}
+   stages {
+      stage ('GIT Pull') {
+        steps {
+            git branch: 'main', url: 'https://github.com/e00049/pipeline-jenkins-repo.git'
+        }
+      }
+      stage ('Docker Build and Push') {
+        steps {
+          script {
+              sh ''' 
+                  sudo docker rmi e00049/nginx:latest || true
+                  sudo docker build -t e00049/nginx:latest . 
+		  echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
+		  sudo docker push e00049/nginx:latest				  
+		  sudo docker logout
+                 '''
+           }            
+        }
+      }      
+   }
+}
